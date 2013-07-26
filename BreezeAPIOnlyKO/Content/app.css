@@ -1,0 +1,122 @@
+﻿.splash {
+    text-align: center;
+    margin: 10% 0 0 0;
+    background-color: black;
+    height: 150px;
+    vertical-align: middle;
+    padding: 50px;
+}
+
+.sidenav {
+    top: 40px;
+}
+
+.splash .message {
+    font-size: 5em;
+    line-height: 1.5em;
+    -webkit-text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 15px;
+    text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 15px;
+}
+
+.splash .icon-spinner {
+    text-align: center;
+    display: inline-block;
+    font-size: 5em;
+    margin-top: 50px;
+}
+
+.page-host {
+    position: relative;
+    top: 40px;
+}
+
+.navbar-fixed-top .navbar-inner {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.navbar-fixed-top .icon-home {
+    font-size: 18px
+}
+
+.loader {
+    margin: 6px 8px 4px 8px;
+    visibility: hidden;
+}
+
+.loader.active {
+    visibility: visible;
+}
+
+@media (max-width: 979px) {
+    .page-host {
+        top: 0;
+    }
+
+    .navbar-fixed-top {
+        margin-bottom: 0;
+    }
+}
+
+.splash-spin {
+  display: inline-block;
+  -moz-animation: spin 4s infinite linear;
+  -o-animation: spin 4s infinite linear;
+  -webkit-animation: spin 4s infinite linear;
+  animation: spin 4s infinite linear;
+}
+
+.message > div > span {
+    font-size: 48px;
+    font-family: 'Arial';
+    color: red;
+    display: inline-block;
+    -moz-animation: pausespin 4s .5s infinite linear;
+    -o-animation: pausespin 4s .5s infinite linear;
+    -webkit-animation: pausespin 4s .5s infinite linear;
+    animation: pausespin 4s .5s infinite linear;
+}
+
+@-moz-keyframes pausespin {
+  0% { -moz-transform: rotate(0deg); }
+  100% { -moz-transform: rotate(359deg); }
+}
+@-webkit-keyframes pausespin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(359deg); }
+}
+@-o-keyframes pausespin {
+  0% { -o-transform: rotate(0deg); }
+  100% { -o-transform: rotate(359deg); }
+}
+@-ms-keyframes pausespin {
+  0% { -ms-transform: rotate(0deg); }
+  100% { -ms-transform: rotate(359deg); }
+}
+@keyframes pausespin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(359deg); }
+}
+
+.team-brief {
+    cursor: pointer;
+}
+
+.team-brief > p {
+    text-align: center;
+    margin: 18px auto;
+    font-size: 36px;
+    color: #fff;
+}
+
+.teams-header {
+    text-align: center;
+    font-size: 65px;
+    letter-spacing: -4px;
+    line-height: 60px;
+}
+
+.media-list .media-object {
+    max-height: 64px;
+    max-width: 128px;
+}

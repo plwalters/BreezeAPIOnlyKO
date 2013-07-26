@@ -1,0 +1,32 @@
+﻿<h3 class="teams-header">Team News - <img src="http://a.espncdn.com/i/apis/attribution/espn-api-black_150.png" /></h3>
+<div class="accordion" id="sports-accordion" data-bind="foreach: teams">
+  <div class="accordion-group">
+    <div class="accordion-heading" data-bind="style: { backgroundColor: '#' + color() }" >
+        <a class="accordion-toggle team-brief" data-toggle="collapse" data-parent="#sports-accordion" 
+            data-bind="attr: { href: '#' + abbreviation() }" >
+            <p><span data-bind="text: abbreviation"></span> - <span data-bind="text: fullName"></span></p>
+        </a>
+    </div>
+    <!-- ko if: showNews() === true -->
+    <h5 data-bind="visible: newsItems().length === 0">Fetching news...</h5>
+    <div data-bind="attr: { id: abbreviation }" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        <ul class="media-list" data-bind="foreach: newsItems">
+            <li class="media">
+                <a class="pull-left" data-bind="attr: { href: link }">
+                    <img class="media-object" data-bind="attr: { src: imageSource(), title: imageCredit }" />
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading" data-bind="text: headline"></h4>
+                    <blockquote>
+                        <p data-bind="text: description"></p>
+                        <small>from <cite title="Source" data-bind="text: source"></cite></small>
+                    </blockquote>
+                </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <!-- /ko -->
+  </div>
+</div>

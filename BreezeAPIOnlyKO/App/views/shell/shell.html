@@ -1,0 +1,33 @@
+﻿<div class="container-fluid">
+<!--ko compose: { view: 'shell/navbar' } --><!--/ko-->
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="row-fluid">        
+                <ul class="nav nav-list sidenav affix">
+                    <li class="nav-header">JavaScript Libraries</li>
+                    <li><a href="http://www.breezejs.com">Breeze.js</a></li>
+                    <li><a href="http://www.knockoutjs.com">Knockout.js</a></li>
+                    <li><a href="http://www.durandaljs.com">Durandal.js</a></li>
+                    <li><a href="http://requirejs.org/">Require.js</a></li>
+                    <li><a href="http://github.com/CodeSeven/toastr">Toastr.js</a></li>
+                    <li class="nav-header">ESPN API Information</li>
+                    <li><a href="http://developer.espn.com/docs">ESPN Developer Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="span8">
+            <div class="container-fluid page-host">
+                <!--ko compose: { 
+                    model: router.activeItem, //wiring the router
+                    afterCompose: router.afterCompose, //wiring the router
+                    cacheViews:true //telling composition to keep views in the dom, and reuse them (only a good idea with singleton view models)
+                }--><!--/ko-->
+            </div>
+        </div>
+        <div class="span2">
+            <div class="row-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
