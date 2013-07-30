@@ -11,12 +11,7 @@ define([], new breeze.JsonResultsAdapter({
     },
 
     visitNode: function (node, mappingContext, nodeContext) {
-        if (node.name) {
-            // If the returned data in the node has a name property
-            // then it is a Team, because we are only getting teams and news
-            return { entityType: "Team" };
-        }
-        else if (node.headline) {
+        if (node.headline) {
             // If the returned item has a headline, then it is news.
             // If there are any images then set the first one as the default
             // picture, and if not show a blank picture

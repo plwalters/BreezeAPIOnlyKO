@@ -10,6 +10,7 @@
         // This is the API Key obtained from ESPN for public use
         var myAPIKEY = "qubdkem5nhuctxtxghkx32nm";
 
+        // Initialize our DataService that we will use
         var ds = new breeze.DataService({
             serviceName: serviceName,
             hasServerMetadata: false,
@@ -17,13 +18,17 @@
             jsonResultsAdapter: jsonResultsAdapter
         });
 
-        var manager = configureBreezeManager();
-
+        // Function for configuring our EntityManager with our 
+        // previously initialized DataService
         function configureBreezeManager() {
             var mgr = new breeze.EntityManager({ dataService: ds });
             return mgr;
         }
 
+        // Go create the manager
+        var manager = configureBreezeManager();
+
+        // Initialize our Manager's MetadataStore
         model.initialize(manager.metadataStore);
         var metadataStore = manager.metadataStore;
 
@@ -36,11 +41,13 @@
                     return Q.resolve();  //Resolve any promises that are waiting on a resolution
                 }
             }
-
+            // Create the parameters for our query
             var parameters = makeParameters();
+            // Get teams and map them back to type of 'Team'
             var query = breeze.EntityQuery
                 .from("teams")
-                .withParameters(parameters);
+                .withParameters(parameters)
+                .toType('Team');
 
             return manager.executeQuery(query).then(querySucceeded).fail(queryFailed);
 
@@ -63,7 +70,8 @@
                 var s = data.results;
                 var tempObs = ko.observableArray(s);
                 // Since the news item has multiple categories and can be for multiple teams
-                // we will set the team explicitly to the team we are searching for
+                // we will set the team explicitly to the team we are searching for.
+                // We could set it to each team, but this is a simple example.
                 ko.utils.arrayForEach(tempObs(), function (newsitem) {
                     newsitem.teamId(team.id());
                 });
@@ -85,6 +93,7 @@
             return data.results;
         }
 
+        // Expose the methods
         var datacontext = {
             getTeams: getTeams,
             getTeamNews: getTeamNews

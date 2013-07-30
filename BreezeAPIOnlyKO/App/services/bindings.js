@@ -1,13 +1,5 @@
-﻿define(['services/logger'], function (logger) {
-    ko.bindingHandlers.tooltip = {
-        init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
-            var valueUnwrapped = ko.utils.unwrapObservable(valueAccessor());
-            $(element).tooltip({
-                title: valueUnwrapped
-            });
-        },
-    };
-
+﻿define([], function () {
+    // Simple custom binding handler for when the return key is pressed
     ko.bindingHandlers.returnAction = {
         init: function (element, valueAccessor, allBindingsAccessor, viewModel) {
             var value = ko.utils.unwrapObservable(valueAccessor());
